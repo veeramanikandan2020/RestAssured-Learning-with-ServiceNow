@@ -14,21 +14,22 @@ public class CreateIncident {
     public Response response;
 
     @Given("BasicAuthenticaion")
-    public void basicAuth(){
+    public void basicAuth()
+    {
         RestAssured.baseURI = "https://dev30304.service-now.com/api/now/table/";
 
         RestAssured.authentication = RestAssured.basic("admin","9Z!Kj%k8NtcP");
     }
 
     @When("Create incident with body {String}")
-    public void createIncident(String data){
+    public void createIncident(String data)
+    {
 
         RequestSpecification body = RestAssured.given().contentType("application/json").when().body(data);
 
         Response response = body.post("incident");
 
-        int statusCode = response.getStatusCode();
-
+        response.prettyPrint();
     }
 
     @Then("validate the status Code 201")
