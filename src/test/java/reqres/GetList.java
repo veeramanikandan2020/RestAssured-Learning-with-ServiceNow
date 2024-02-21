@@ -12,6 +12,7 @@ public class GetList {
 
         RestAssured.baseURI = "https://reqres.in/";
         RequestSpecification input = RestAssured.given().when();
+
         Response resp =
                 input.get("api/users?page=2");
         resp.prettyPrint();
@@ -21,12 +22,8 @@ public class GetList {
         System.out.println("Page Request for Page no 2");
 
         System.out.println("Status Code for get is : 200");
-        System.out.println("Response Code is :"+resp.statusCode());
 
-
-
+        
     }
-
-
 
 }
